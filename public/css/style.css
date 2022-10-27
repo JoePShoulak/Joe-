@@ -19,7 +19,7 @@ body {
   background-color: var(--quatrinary);
 }
 
-a {
+a, #logout {
   color: var(--dark);
   text-decoration: none;
 }
