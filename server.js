@@ -1,12 +1,22 @@
 const path = require("path");
 const express = require("express");
 const routes = require("./routes");
+const session = require("express-session");
+
 const exphbs = require("express-handlebars");
 
 // import sequelize connection
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+const sess = {
+  secret: "Super secret secret",
+  resave: false,
+  saveUninitialized: true,
+};
+
+app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
