@@ -59,6 +59,7 @@ router.post("/login", async (req, res) => {
     // Once the user successfully logs in, set up the sessions variable 'loggedIn'
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = dbUserData.dataValues.id;
 
       res
         .status(200)
@@ -88,6 +89,8 @@ router.post("/", async (req, res) => {
     const userData = await User.create(req.body);
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = req.body.user_id;
+
       res.status(200).json(userData);
     });
   } catch (err) {
