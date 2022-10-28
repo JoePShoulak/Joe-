@@ -1,4 +1,5 @@
 # Joe++
+## [Deployment](https://joepp.up.railway.app/)
 
 ## About
 Welcome to Joe++, my tech blog! This is a place where people get better. Just like how C++ was named after the "plus one" operator in that language, I named this blog Joe++ so say how I hope to get better each day, and how I hope you all will feel as you use this blog!
@@ -11,3 +12,4 @@ This project is built using
 	- Handlebars for our Views
 	- Express for our Controllers
 - bcrypt for password hashing
+- Railway for hosting
