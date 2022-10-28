@@ -10,7 +10,7 @@
       <p>
         {{post.content}}
       </p>
-      <span>-{{post.user.first_name}} {{post.user.last_name}}</span>
+      <span>-{{post.user.username}}</span>
       {{#if post.comments}}
         <h4>Comments</h4>
         {{#each post.comments as |comment|}}

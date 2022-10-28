@@ -10,6 +10,7 @@ router.get("/", async (req, res) => {
 
   if (postData) {
     const posts = postData.map((post) => post.get({ plain: true }));
+    console.log(posts);
     res.render("homepage", { posts, loggedIn: req.session.loggedIn });
   }
 });

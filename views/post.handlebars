@@ -9,16 +9,17 @@
     <p>
       {{post.content}}
     </p>
-    <span>-{{post.user.first_name}} {{post.user.last_name}}</span>
+    <span>-{{post.user.username}},
+      {{post.createdAt}}</span>
   </div>
   {{#if post.comments}}
     <h4>Comments</h4>
     {{#each post.comments as |comment|}}
       <div class="card">
-        <h6>{{comment.user.first_name}}
-          {{comment.user.last_name}}
+        <h6>{{comment.user.username}}
           says...</h6>
         <p>{{comment.content}}</p>
+        <span>-{{comment.createdAt}}</span>
       </div>
     {{/each}}
   {{/if}}
