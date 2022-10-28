@@ -8,8 +8,12 @@ router.get("/", async (req, res) => {
     res.json(err);
   });
 
-  const posts = postData.map((post) => post.get({ plain: true }));
-  res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+  console.log("postData", postData);
+
+  if (postData) {
+    const posts = postData.map((post) => post.get({ plain: true }));
+    res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+  }
 });
 
 router.get("/login", (req, res) => {
