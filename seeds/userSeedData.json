@@ -1,19 +1,19 @@
 [
   {
-    "first_name": "Joe",
-    "last_name": "Joe lastnametest",
+    "first_name": "Sal",
+    "last_name": "Simon",
     "email": "sal@hotmail.com",
     "password": "password1234"
   },
   {
     "first_name": "Jake",
-    "last_name": "Jake lastnametest",
+    "last_name": "Shoulak",
     "email": "lernantino@gmail.com",
     "password": "coolPw2020"
   },
   {
     "first_name": "Jeff",
-    "last_name": "Jeff lastnametest",
+    "last_name": "Smith",
     "email": "amiko2k20@aol.com",
     "password": "amiko2k20!"
   }

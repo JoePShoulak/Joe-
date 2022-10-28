@@ -9,7 +9,6 @@ router.get("/", async (req, res) => {
   });
 
   const posts = postData.map((post) => post.get({ plain: true }));
-  console.log(posts[1].comments);
   res.render("homepage", { posts, loggedIn: req.session.loggedIn });
 });
 
@@ -29,7 +28,28 @@ router.get("/dashboard", async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
     res.render("dashboard", {
       loggedIn: req.session.loggedIn,
+      user_id: req.session.user_id,
       posts,
+    });
+  } catch (err) {
+    res.redirect("/");
+  }
+});
+
+router.get("/posts/:id", async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        { model: Comment, include: [{ model: User }] },
+        { model: User },
+      ],
+    });
+
+    const post = postData.get({ plain: true });
+    res.render("post", {
+      loggedIn: req.session.loggedIn,
+      post,
+      user_id: req.session.user_id,
     });
   } catch (err) {
     res.redirect("/");

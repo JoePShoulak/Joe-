@@ -6,7 +6,7 @@
   </div>
   {{#each posts as |post|}}
     <div class="card col-md-12">
-      <h3>Post</h3>
+      <a href="/posts/{{post.id}}"><h3>{{post.title}}</h3></a>
       <p>
         {{post.content}}
       </p>
@@ -24,4 +24,25 @@
 
   {{/each}}
 
+  <div class="card col-md-12">
+    <h4>Add Post:</h4>
+    <form class="form post-form">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input class="form-input" type="text" id="title" />
+        <input id="user_id" type="hidden" value="{{user_id}}" />
+      </div>
+      <div class="form-group">
+        <label for="content">Content:</label>
+        <textarea class="form-input" id="content"></textarea>
+        <input id="user_id" type="hidden" value="{{user_id}}" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">submit</button>
+      </div>
+    </form>
+  </div>
+
 </div>
+
+<script src="/js/post.js"></script>

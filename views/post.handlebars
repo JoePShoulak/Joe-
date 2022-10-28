@@ -1,0 +1,44 @@
+<div class="menu-container">
+  <div class="card-header col-md-12 text-center">
+    <h2>
+      Post
+    </h2>
+  </div>
+  <div class="card col-md-12">
+    <h3>{{post.title}}</h3>
+    <p>
+      {{post.content}}
+    </p>
+    <span>-{{post.user.first_name}} {{post.user.last_name}}</span>
+  </div>
+  {{#if post.comments}}
+    <h4>Comments</h4>
+    {{#each post.comments as |comment|}}
+      <div class="card">
+        <h6>{{comment.user.first_name}}
+          {{comment.user.last_name}}
+          says...</h6>
+        <p>{{comment.content}}</p>
+      </div>
+    {{/each}}
+  {{/if}}
+
+  {{#if loggedIn}}
+    <div class="card col-md-12">
+      <h4>Add Comment:</h4>
+      <form class="form comment-form">
+        <div class="form-group">
+          <input class="form-input" type="text" id="comment" />
+          <input id="post_id" type="hidden" value="{{post.id}}" />
+          <input id="user_id" type="hidden" value="{{user_id}}" />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit">submit</button>
+        </div>
+      </form>
+    </div>
+  {{/if}}
+
+</div>
+
+<script src="/js/comment.js"></script>
